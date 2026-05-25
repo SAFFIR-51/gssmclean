@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f5e8d8"/><stop offset="100%" stop-color="#d8c0a0"/></linearGradient></defs>
+  <rect width="400" height="300" fill="url(#bg5)"/>
+  <g transform="translate(50 40)">
+    <text x="150" y="20" font-family="Pretendard, sans-serif" font-size="12" font-weight="700" fill="#8a5a20" text-anchor="middle">갑상선 호르몬 추이</text>
+    <path d="M 0,160 Q 75,180 150,140 T 300,80" stroke="#d4951a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="0" cy="160" r="4" fill="#d4951a"/>
+    <circle cx="150" cy="140" r="4" fill="#d4951a"/>
+    <circle cx="300" cy="80" r="5" fill="#f59222"/>
+    <text x="20" y="220" font-family="Pretendard, sans-serif" font-size="10" fill="#6a4a10">TSH 정상화 8주</text>
+  </g>
+</svg>

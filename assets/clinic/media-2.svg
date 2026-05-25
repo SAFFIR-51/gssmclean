@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a7ab8"/><stop offset="100%" stop-color="#1a5a98"/></linearGradient></defs>
+  <rect width="300" height="400" fill="url(#m2)"/>
+  <g transform="translate(150 160)">
+    <circle r="40" fill="rgba(255,255,255,0.15)"/>
+    <circle r="28" fill="rgba(255,255,255,0.95)"/>
+    <polygon points="-8,-12 -8,12 12,0" fill="#1a5a98"/>
+  </g>
+  <text x="150" y="260" font-family="Pretendard, sans-serif" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">투석 환자의 식단 관리</text>
+  <text x="150" y="285" font-family="Pretendard, sans-serif" font-size="11" font-weight="500" fill="rgba(255,255,255,0.85)" text-anchor="middle">칼륨 · 인 · 단백질 가이드</text>
+  <text x="150" y="370" font-family="Pretendard, sans-serif" font-size="10" font-weight="600" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="2">최신내과 · YOUTUBE</text>
+</svg>

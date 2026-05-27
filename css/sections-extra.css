@@ -118,7 +118,7 @@
 .media-tab.is-active {
   background: var(--c-orange);
   color: #fff;
-  box-shadow: 0 4px 12px rgba(245, 146, 34, 0.32);
+  box-shadow: 0 4px 12px rgba(27, 57, 110, 0.32);
 }
 .media-tab:hover:not(.is-active) {
   background: var(--c-orange-pale);

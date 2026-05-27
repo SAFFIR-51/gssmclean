@@ -16,7 +16,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/clinic/favicon.png" />
   <link rel="apple-touch-icon" href="assets/clinic/apple-touch-icon.png" />
-  <meta name="theme-color" content="#d97208" />
+  <meta name="theme-color" content="#1B396E" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -79,8 +79,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="css/style.css?v=3" />
-  <link rel="stylesheet" href="css/design-v2.css?v=92" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/design-v2.css?v=93" />
   <link rel="stylesheet" href="css/sections-extra.css?v=3" />
 </head>
 <body>
@@ -130,9 +130,9 @@
         </ul>
       </nav>
       <div class="header-utils">
-        <a href="#" class="hd-cta hd-cta--book" aria-label="예약하기">
+        <button type="button" class="hd-cta hd-cta--book" aria-label="예약하기" data-open-call>
           <span>예약하기</span>
-        </a>
+        </button>
         <button id="mnav-toggle" type="button" aria-label="메뉴" onclick="document.getElementById('mnav').classList.toggle('open');this.classList.toggle('open');document.body.classList.toggle('mnav-open');return false;">
           <span></span><span></span><span></span>
         </button>
@@ -186,7 +186,7 @@
       </ul>
     </nav>
     <div class="mnav-foot">
-      <a href="#" class="mnav-cta">예약하기</a>
+      <button type="button" class="mnav-cta" data-open-call>예약하기</button>
       <p class="mnav-info">서울특별시 강서구 공항대로 200<br />마곡지웰타워 3F</p>
     </div>
   </aside>
@@ -279,14 +279,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Brand Phrase Heading (LU치과 영문 + 그라데이션) -->
-  <div class="phrase-heading">
-    <h2>
-      <span class="ph-line ph-line--1">Care for your family</span>
-      <span class="ph-line ph-line--2">Care for your life</span>
-    </h2>
-  </div>
   </div><!-- /.intro-phrase-wrap -->
 
   <!-- Section: 진료분야 -->
@@ -394,32 +386,24 @@
           <img src="assets/clinic/doctor-oyoungseung.png" alt="오영승 원장" />
         </div>
         <div class="team-info">
-          <h3 class="team-name">오영승 <span>원장</span></h3>
+          <h3 class="team-name">오영승 <span>대표원장</span></h3>
+          <p class="team-spec">신장 투석 전문의 · 소화기내시경 세부전문의</p>
           <ul class="team-history">
-            <li>한양대학교 의과대학 졸업</li>
-            <li>한양대학교병원 내과 전공의 수료</li>
-            <li>대한내과학회 내과 전문의</li>
-            <li>대한신장학회 정회원 · 혈액투석 전문의</li>
-            <li>대한고혈압학회 · 대한당뇨병학회 정회원</li>
-            <li>전) 한양대학교병원 신장내과 임상강사</li>
+            <li>현) 강서성모맑은내과의원 원장</li>
+            <li>전) 메디인병원 신장내과 과장</li>
+            <li>전) 부천우리병원 소화기내과 과장</li>
+            <li>전) 국군고양병원 내과 과장</li>
+            <li>순천향대학교 부천병원 신장내과 임상강사</li>
+            <li>가톨릭대학교 부천성모병원 소화기내과 임상강사</li>
+            <li>가톨릭중앙의료원 인턴 · 내과 전문의</li>
+            <li>대한내과학회 종신회원 · 대한신장학회 · 대한소화기내과학회 정회원</li>
+            <li>대한당뇨병학회 · 대한고혈압학회 · 대한골대사학회 정회원</li>
           </ul>
           <a href="pages/lu-story.html" class="more-btn">의료진 자세히 보기 <span class="arrow">›</span></a>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Brand Phrase Marquee -->
-  <div class="phrase-marquee">
-    <div class="phrase-track">
-      <span>Care for your family</span><em>♥</em>
-      <span>Care for your life</span><em>♥</em>
-      <span>Care for your family</span><em>♥</em>
-      <span>Care for your life</span><em>♥</em>
-      <span>Care for your family</span><em>♥</em>
-      <span>Care for your life</span><em>♥</em>
-    </div>
-  </div>
 
   <!-- Section: Why -->
   <section class="section why" id="why">
@@ -479,24 +463,63 @@
         </p>
       </header>
 
-      <div class="equipment-track">
-        <div class="equipment-row">
-          <div class="equip-card"><img src="assets/clinic/equip-xray.jpg" alt="디지털 X-Ray" /></div>
-          <div class="equip-card"><img src="assets/clinic/equip-ultrasound.jpg" alt="복부 초음파 LOGIQ P10" /></div>
-          <div class="equip-card"><img src="assets/clinic/equip-endoscope.jpg" alt="위내시경 OLYMPUS EVIS-190" /></div>
-          <div class="equip-card"><img src="assets/clinic/equip-mammo.jpg" alt="유방암 진단 GENORAY MX-600" /></div>
-          <div class="equip-card"><img src="assets/clinic/equip-osteopro.jpg" alt="골밀도 측정기 OsteoPro MAX" /></div>
-          <div class="equip-card"><img src="assets/clinic/equip-oxygen.jpg" alt="의료용 산소발생기" /></div>
-          <!-- duplicate for seamless loop -->
-          <div class="equip-card" aria-hidden="true"><img src="assets/clinic/equip-xray.jpg" alt="" /></div>
-          <div class="equip-card" aria-hidden="true"><img src="assets/clinic/equip-ultrasound.jpg" alt="" /></div>
-          <div class="equip-card" aria-hidden="true"><img src="assets/clinic/equip-endoscope.jpg" alt="" /></div>
-          <div class="equip-card" aria-hidden="true"><img src="assets/clinic/equip-mammo.jpg" alt="" /></div>
-          <div class="equip-card" aria-hidden="true"><img src="assets/clinic/equip-osteopro.jpg" alt="" /></div>
-          <div class="equip-card" aria-hidden="true"><img src="assets/clinic/equip-oxygen.jpg" alt="" /></div>
+      <div class="equip-slider" data-equip-slider>
+        <button class="equip-nav equip-nav--prev" type="button" aria-label="이전 장비">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        <div class="equip-viewport">
+          <div class="equip-track">
+            <article class="equip-slide">
+              <span class="equip-num">01</span>
+              <div class="equip-thumb"><img src="assets/clinic/equip-xray.png" alt="디지털 X-ray ESSENCE 5" /></div>
+              <div class="equip-body">
+                <p class="equip-cat">디지털 X-ray</p>
+                <h3 class="equip-title">ESSENCE 5</h3>
+                <p class="equip-sub">디알텍 · 저선량 정밀 영상촬영</p>
+              </div>
+            </article>
+            <article class="equip-slide">
+              <span class="equip-num">02</span>
+              <div class="equip-thumb"><img src="assets/clinic/equip-ultrasound.png" alt="초음파 HS40" /></div>
+              <div class="equip-body">
+                <p class="equip-cat">초음파</p>
+                <h3 class="equip-title">HS40</h3>
+                <p class="equip-sub">삼성메디슨 · 고해상도 복부·갑상선 검사</p>
+              </div>
+            </article>
+            <article class="equip-slide">
+              <span class="equip-num">03</span>
+              <div class="equip-thumb"><img src="assets/clinic/equip-osteopro.png" alt="골밀도검사 DEXXUM T QUANTUM" /></div>
+              <div class="equip-body">
+                <p class="equip-cat">골밀도검사</p>
+                <h3 class="equip-title">DEXXUM T QUANTUM</h3>
+                <p class="equip-sub">오스테오시스 · 정밀 골밀도 측정</p>
+              </div>
+            </article>
+            <article class="equip-slide">
+              <span class="equip-num">04</span>
+              <div class="equip-thumb"><img src="assets/clinic/equip-dialysis.png" alt="혈액투석기 NCU-18" /></div>
+              <div class="equip-body">
+                <p class="equip-cat">혈액투석기</p>
+                <h3 class="equip-title">NCU-18</h3>
+                <p class="equip-sub">Nipro · 안정적인 투석 모니터링</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <button class="equip-nav equip-nav--next" type="button" aria-label="다음 장비">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+
+        <div class="equip-dots" role="tablist" aria-label="장비 선택">
+          <button type="button" class="equip-dot is-active" data-i="0" aria-label="1번 장비"></button>
+          <button type="button" class="equip-dot" data-i="1" aria-label="2번 장비"></button>
+          <button type="button" class="equip-dot" data-i="2" aria-label="3번 장비"></button>
+          <button type="button" class="equip-dot" data-i="3" aria-label="4번 장비"></button>
         </div>
       </div>
-      <div class="equipment-watermark">Gangseo Maleun Internal Medicine</div>
     </div>
   </section>
 
@@ -563,7 +586,12 @@
         <div class="visit-addr-block">
           <p class="visit-addr">
             서울특별시 강서구 공항대로 200<br />
-            <span class="visit-addr-sub">마곡지웰타워 3층 · 5호선·공항철도 마곡역 인근</span>
+            <span class="visit-addr-sub">마곡지웰타워 3층 · 5호선 마곡역 2·4번 출구 도보 2분</span>
+          </p>
+          <p class="visit-tel">
+            대표 <a href="tel:02-2666-0666">02-2666-0666</a>
+            <span class="visit-tel__sep">·</span>
+            인공신장실 <a href="tel:02-2666-0661">02-2666-0661</a>
           </p>
         </div>
 
@@ -606,13 +634,14 @@
       <div class="footer-top">
         <a href="index.html" class="footer-logo"><img src="assets/clinic/logo.png" alt="강서성모맑은내과의원" /></a>
         <ul class="footer-links">
-          <li><a href="#">이용약관</a></li>
-          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="pages/terms.html">이용약관</a></li>
+          <li><a href="pages/privacy.html">개인정보처리방침</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
         <p>강서성모맑은내과의원 | 대표자 : 오영승 | 사업자등록번호 : 812-97-01891</p>
         <p>서울특별시 강서구 공항대로 200, 마곡지웰타워 3F</p>
+        <p>대표전화 <a href="tel:02-2666-0666">02-2666-0666</a> · 인공신장실 <a href="tel:02-2666-0661">02-2666-0661</a></p>
         <p>Copyright © 2026 강서성모맑은내과의원. All rights reserved.</p>
       </div>
     </div>
@@ -620,7 +649,10 @@
 
   <!-- Floating Quick Buttons -->
   <div class="floating">
-    <button class="float-btn float-btn--top" id="topBtn" aria-label="맨 위로">↑</button>
+    <button class="float-btn float-btn--call" type="button" aria-label="전화 연결" data-open-call>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+    </button>
+    <button class="float-btn float-btn--top" id="topBtn" type="button" aria-label="맨 위로">↑</button>
   </div>
 
   <script src="js/script.js?v=12"></script>

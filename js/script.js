@@ -8,10 +8,101 @@ document.addEventListener('DOMContentLoaded', () => {
   const inits = [
     initHeader, initHeroSlider, initDepartmentSlider, initWhyStage, initWhySlider,
     initLocationSlider, initSliders, initMediaTabs, initScrollReveal, initTopButton,
-    initPopupWidget, initCondTabs, initHpTabs, initSpaPromise,
+    initPopupWidget, initCondTabs, initHpTabs, initSpaPromise, initCallModal,
+    initEquipSlider,
   ];
   inits.forEach(fn => { try { fn(); } catch (e) { console.error(fn.name, e); } });
 });
+
+/* ---------- Equipment Slider (홈) — 페이드 전환 + 자동 재생 ---------- */
+function initEquipSlider() {
+  const root = document.querySelector('[data-equip-slider]');
+  if (!root) return;
+  const slides = root.querySelectorAll('.equip-slide');
+  const prev = root.querySelector('.equip-nav--prev');
+  const next = root.querySelector('.equip-nav--next');
+  const dots = root.querySelectorAll('.equip-dot');
+  if (!slides.length) return;
+
+  let idx = 0;
+  let autoTimer = null;
+  const total = slides.length;
+
+  const go = (i) => {
+    idx = (i + total) % total;
+    slides.forEach((s, si) => s.classList.toggle('is-active', si === idx));
+    dots.forEach((d, di) => d.classList.toggle('is-active', di === idx));
+  };
+
+  // initial state
+  slides.forEach((s, si) => s.classList.toggle('is-active', si === 0));
+
+  prev && prev.addEventListener('click', () => { go(idx - 1); restart(); });
+  next && next.addEventListener('click', () => { go(idx + 1); restart(); });
+  dots.forEach((d) => d.addEventListener('click', () => {
+    const i = parseInt(d.dataset.i, 10);
+    if (!isNaN(i)) { go(i); restart(); }
+  }));
+
+  const start = () => { stop(); autoTimer = setInterval(() => go(idx + 1), 4500); };
+  const stop = () => { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } };
+  const restart = () => start();
+
+  root.addEventListener('mouseenter', stop);
+  root.addEventListener('mouseleave', start);
+  start();
+}
+
+/* ---------- Call Modal — 대표전화 / 인공신장실 선택 ---------- */
+function initCallModal() {
+  if (document.getElementById('callModal')) return;
+  const html = `
+  <div class="call-modal" id="callModal" aria-hidden="true" role="dialog" aria-labelledby="callModalTitle">
+    <div class="call-modal__backdrop" data-close-call></div>
+    <div class="call-modal__panel" role="document">
+      <button type="button" class="call-modal__close" aria-label="닫기" data-close-call>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <p class="call-modal__eyebrow">Call</p>
+      <h3 class="call-modal__title" id="callModalTitle">전화 연결</h3>
+      <p class="call-modal__desc">원하시는 곳으로 바로 연결됩니다.</p>
+      <div class="call-modal__list">
+        <a href="tel:02-2666-0666" class="call-item call-item--primary">
+          <span class="call-item__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="call-item__text">
+            <span class="call-item__label">대표전화</span>
+            <strong class="call-item__num">02-2666-0666</strong>
+          </span>
+          <span class="call-item__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="tel:02-2666-0661" class="call-item">
+          <span class="call-item__ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span class="call-item__text">
+            <span class="call-item__label">인공신장실</span>
+            <strong class="call-item__num">02-2666-0661</strong>
+          </span>
+          <span class="call-item__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="call-modal__hours">평일 08:00–19:00 · 토요일 09:00–14:00<br />인공신장실은 일요일 제외 연중무휴 운영</p>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+  const modal = document.getElementById('callModal');
+  const open = (e) => { if (e) e.preventDefault(); modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.classList.add('call-open'); };
+  const close = (e) => { if (e) e.preventDefault(); modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('call-open'); };
+  document.addEventListener('click', (ev) => {
+    if (ev.target.closest('[data-open-call]')) { open(ev); return; }
+    if (ev.target.closest('[data-close-call]')) { close(ev); return; }
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' && modal.classList.contains('open')) close();
+  });
+}
 
 /* ---------- SPA Our Promise — sticky scroll로 카드 swap ---------- */
 function initSpaPromise() {
@@ -478,7 +569,7 @@ function initMediaTabs() {
 function initScrollReveal() {
   const targets = document.querySelectorAll(
     '.section-head, .intro-text, .intro-visual, .depart-card, ' +
-    '.team-card, .team-intro, .why-card, .equip-card, .loc-card, ' +
+    '.team-card, .team-intro, .why-card, .loc-card, ' +
     '.ba-card, .media-card, .map-info, .map-wrap, .cta-title, .cta-btn, ' +
     '.hours-block, .visit-map, .visit-info, .depart-img, .depart-info, ' +
     '[data-reveal]'

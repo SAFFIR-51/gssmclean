@@ -53,9 +53,9 @@
         </ul>
       </nav>
       <div class="header-utils">
-        <a href="#" class="hd-cta hd-cta--book" aria-label="예약하기">
+        <button type="button" class="hd-cta hd-cta--book" aria-label="예약하기" data-open-call>
           <span>예약하기</span>
-        </a>
+        </button>
         <button id="mnav-toggle" type="button" aria-label="메뉴" onclick="document.getElementById('mnav').classList.toggle('open');this.classList.toggle('open');document.body.classList.toggle('mnav-open');return false;">
           <span></span><span></span><span></span>
         </button>
@@ -109,7 +109,7 @@
       </ul>
     </nav>
     <div class="mnav-foot">
-      <a href="#" class="mnav-cta">예약하기</a>
+      <button type="button" class="mnav-cta" data-open-call>예약하기</button>
       <p class="mnav-info">서울특별시 강서구 공항대로 200<br />마곡지웰타워 3F</p>
     </div>
   </aside>`;
@@ -120,20 +120,24 @@
       <div class="footer-top">
         <a href="${ROOT}index.html" class="footer-logo"><img src="${ROOT}assets/clinic/logo.png" alt="강서성모맑은내과의원" /></a>
         <ul class="footer-links">
-          <li><a href="#">이용약관</a></li>
-          <li><a href="#">개인정보처리방침</a></li>
+          <li><a href="${ROOT}pages/terms.html">이용약관</a></li>
+          <li><a href="${ROOT}pages/privacy.html">개인정보처리방침</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
         <p>강서성모맑은내과의원 | 대표자 : 오영승 | 사업자등록번호 : 812-97-01891</p>
         <p>서울특별시 강서구 공항대로 200, 마곡지웰타워 3F</p>
+        <p>대표전화 <a href="tel:02-2666-0666">02-2666-0666</a> · 인공신장실 <a href="tel:02-2666-0661">02-2666-0661</a></p>
         <p>Copyright © 2026 강서성모맑은내과의원. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <div class="floating">
-    <button class="float-btn float-btn--top" id="topBtn" aria-label="맨 위로">↑</button>
+    <button class="float-btn float-btn--call" type="button" aria-label="전화 연결" data-open-call>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+    </button>
+    <button class="float-btn float-btn--top" id="topBtn" type="button" aria-label="맨 위로">↑</button>
   </div>`;
 
   const headerSlot = document.getElementById('header-slot');

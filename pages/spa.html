@@ -29,6 +29,43 @@
   <link rel="stylesheet" href="../css/style.css?v=3" />
   <link rel="stylesheet" href="../css/subpage.css?v=3" />
   <link rel="stylesheet" href="../css/design-v2.css?v=92" />
+
+  <!-- 구조화 데이터 (JSON-LD): MedicalClinic — 인공신장실 페이지 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "강서성모맑은내과의원 인공신장실",
+    "image": "https://gssmclean.com/assets/clinic/og-image.png",
+    "url": "https://gssmclean.com/pages/spa.html",
+    "telephone": "02-2666-0661",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "공항대로 200 마곡지웰타워 3F",
+      "addressLocality": "강서구",
+      "addressRegion": "서울특별시",
+      "postalCode": "07803",
+      "addressCountry": "KR"
+    },
+    "geo": {"@type": "GeoCoordinates", "latitude": 37.5601, "longitude": 126.8252},
+    "medicalSpecialty": ["Nephrology"],
+    "areaServed": [
+      {"@type": "Place", "name": "마곡동"},
+      {"@type": "Place", "name": "방화동"},
+      {"@type": "Place", "name": "강서구"},
+      {"@type": "Place", "name": "발산동"},
+      {"@type": "Place", "name": "가양동"},
+      {"@type": "Place", "name": "등촌동"}
+    ],
+    "knowsAbout": ["마곡 투석실", "마곡 인공신장실", "마곡 혈액투석", "마곡 야간투석", "마곡 신장내과"],
+    "availableService": [
+      {"@type": "MedicalProcedure", "name": "마곡 혈액투석"},
+      {"@type": "MedicalProcedure", "name": "마곡 야간투석"},
+      {"@type": "MedicalProcedure", "name": "신장기능검사"},
+      {"@type": "MedicalProcedure", "name": "만성신부전 관리"}
+    ]
+  }
+  </script>
 </head>
 <body class="subpage">
   <div id="header-slot"></div>

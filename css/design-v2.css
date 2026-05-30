@@ -7450,3 +7450,82 @@ body.theme-kidney .brand-white { color: #93BE24 !important; -webkit-text-fill-co
 /* 하드코딩된 파란 보더/배경 → 그린 톤 (신장 스코프) */
 body.theme-kidney .hp-tab { border-color: #DDE9B8 !important; }
 body.theme-kidney .hp-tab:hover { border-color: #B0CE5C !important; }
+
+/* ===========================================================
+   2026-05-30 Adjustments
+   - Floating call button: pulse 제거 (정신없음)
+   - Doctor photo: 새 인물사진 비율(3:4)에 맞춰 영역 축소
+   - Mobile: 푸터 정렬 / 메인 타이포 정리 / brand 밑줄 제거
+   =========================================================== */
+
+/* 1) 플로팅 전화버튼 펄스 애니메이션 제거 */
+.float-btn--call::after { display: none !important; animation: none !important; }
+
+/* 2) 원장 사진 영역 축소 + 비율 보정 (새 인물사진 3:4 기준) */
+.team-bottom {
+  grid-template-columns: 360px 1fr !important;
+  gap: 70px !important;
+}
+.team-photo {
+  aspect-ratio: 3 / 4 !important;
+  max-width: 360px;
+}
+.team-photo img {
+  object-position: center 18% !important;
+}
+
+/* 3) 모바일 — 푸터 정렬: 로고 가운데, 약관/방침 중앙 정렬 */
+@media (max-width: 768px) {
+  .footer { padding: 44px 0 36px; }
+  .footer-top {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    gap: 18px !important;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+  }
+  .footer-logo { height: 28px !important; }
+  .footer-links {
+    gap: 18px !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+  .footer-links a { font-size: 13px; }
+  .footer-bottom { text-align: center; }
+  .footer-bottom p { font-size: 12px !important; line-height: 1.7 !important; }
+}
+
+/* 4) 모바일 — 메인 타이포 크기 일관화 + brand 밑줄 제거 */
+@media (max-width: 768px) {
+  /* brand 키워드 뒤의 컬러 밑줄(::after) 제거 */
+  .section-title .brand::after { display: none !important; }
+
+  /* 메인(홈) 큰 타이틀들 통일 — clamp 범위를 좁혀서 화면 폭에 따라 흔들리지 않게 */
+  .hero-title {
+    font-size: clamp(32px, 8.4vw, 44px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.025em !important;
+  }
+  .hero-sub {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    margin-top: 16px !important;
+  }
+  .section-title,
+  .intro-text .section-title,
+  .team-head .section-title,
+  .visit-head .section-title,
+  .equipment-head .section-title,
+  .location-head .section-title {
+    font-size: clamp(26px, 7.2vw, 32px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+  }
+  .cta-title { font-size: clamp(26px, 7.2vw, 32px) !important; }
+  .phrase-heading h2 { font-size: clamp(36px, 11vw, 56px) !important; line-height: 1.3 !important; }
+
+  /* 모바일에선 팀 사진 영역도 추가 축소 */
+  .team-bottom { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .team-photo { max-width: 240px !important; margin: 0 auto !important; }
+}

@@ -63,23 +63,27 @@ export default function DialysisCenter() {
             신장학회 인증<br />
             <span className="brand">인공신장실</span>
           </h2>
-          <div className={styles.counter}>
-            {String(active + 1).padStart(2, "0")}<small> / {String(N).padStart(2, "0")}</small>
-          </div>
+          {!mobile && (
+            <div className={styles.counter}>
+              {String(active + 1).padStart(2, "0")}<small> / {String(N).padStart(2, "0")}</small>
+            </div>
+          )}
           <p className="section-desc" style={{ maxWidth: 440 }}>
             대학병원 출신 투석 전문의가 직접 진료하는, 마곡·방화동·강서구 거점 인공신장실.
             아침 이른 시간부터 야간투석까지 운영합니다.
           </p>
-          <div className={styles.dots}>
-            {DIALYSIS_PROMISE.map((_, i) => (
-              <button
-                key={i}
-                className={`${styles.dot}${i === active ? " " + styles.dotActive : ""}`}
-                aria-label={`${i + 1}번 약속`}
-                onClick={() => jumpTo(i)}
-              />
-            ))}
-          </div>
+          {!mobile && (
+            <div className={styles.dots}>
+              {DIALYSIS_PROMISE.map((_, i) => (
+                <button
+                  key={i}
+                  className={`${styles.dot}${i === active ? " " + styles.dotActive : ""}`}
+                  aria-label={`${i + 1}번 약속`}
+                  onClick={() => jumpTo(i)}
+                />
+              ))}
+            </div>
+          )}
           <div className={styles.stats}>
             {DIALYSIS_STATS.map((s) => (
               <div className={styles.stat} key={s.label}>

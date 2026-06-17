@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { DEPARTMENTS } from "@/data/content";
-import { scrollToId } from "@/lib/lenis";
 
 const ChevL = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
@@ -53,25 +52,8 @@ export default function Departments() {
                 <div className="depart-info">
                   <h3 className="depart-title">{d.title}</h3>
                   <p className="depart-desc">{d.desc}</p>
-                  <a
-                    href={`#${d.id}`}
-                    className="more-btn"
-                    onClick={(e) => { e.preventDefault(); scrollToId(d.id); }}
-                  >
-                    자세히 보기 <span className="arrow">›</span>
-                  </a>
                 </div>
               </article>
-            ))}
-          </div>
-          <div className="dept-dots">
-            {DEPARTMENTS.map((_, i) => (
-              <button
-                key={i}
-                className={`dept-dot${i === idx ? " is-active" : ""}`}
-                aria-label={`${i + 1}번 진료분야`}
-                onClick={() => setIdx(i)}
-              />
             ))}
           </div>
         </div>

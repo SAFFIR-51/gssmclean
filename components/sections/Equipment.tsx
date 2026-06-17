@@ -57,6 +57,14 @@ export default function Equipment() {
                   <span className={styles.cat}>{e.cat}</span>
                   <h3 className={styles.title}>{e.title}</h3>
                   <p className={styles.sub}>{e.sub}</p>
+                  <ul className={styles.features}>
+                    {e.features.map((f) => (
+                      <li key={f}>
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </article>
             ))}

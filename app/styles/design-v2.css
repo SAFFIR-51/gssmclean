@@ -269,8 +269,11 @@ body.subpage { padding-top: 84px; }
   background: #fff;
 }
 .intro-img-main img {
-  width: 100%; height: 100%;
+  width: 100%;
+  /* 패럴랙스(yPercent:-8)로 위로 이동해도 하단에 흰 여백이 생기지 않도록 오버사이즈 */
+  height: 116%;
   object-fit: cover;
+  object-position: center;
 }
 .intro-img-sub {
   position: relative;
@@ -1736,10 +1739,10 @@ body.subpage .page-header .page-sub {
    Floating Call Button + Call Modal
    =========================================== */
 .float-btn--call {
-  background: linear-gradient(135deg, #B0CE5C, #93BE24);
+  background: linear-gradient(135deg, #244a86, #1b396e);
   color: #fff;
   position: relative;
-  box-shadow: 0 8px 22px rgba(147, 190, 36, 0.35) !important;
+  box-shadow: 0 8px 22px rgba(27, 57, 110, 0.38) !important;
 }
 .float-btn--call::after {
   content: "";

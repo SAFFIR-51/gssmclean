@@ -19,6 +19,13 @@ export const CLINIC = {
   ] as Hour[],
   mapEmbed:
     "https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EC%84%9C%EA%B5%AC%20%EA%B3%B5%ED%95%AD%EB%8C%80%EB%A1%9C%20200&t=&z=16&ie=UTF8&iwloc=&output=embed",
+  naver: {
+    place:
+      "https://map.naver.com/p/entry/place/2045817205?placePath=/home?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202606171436&locale=ko&svcName=map_pcv5&searchType=place&lng=126.8294731&lat=37.5589625&c=15.00,0,0,0,dh",
+    blog: "https://blog.naver.com/rkdtjtjdah",
+  },
+  // 네이버 지도 마커 좌표 (place 링크 기준)
+  geo: { lat: 37.5589625, lng: 126.8294731 },
 } as const;
 
 // 원페이지 앵커 네비게이션

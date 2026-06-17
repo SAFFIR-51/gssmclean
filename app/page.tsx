@@ -3,10 +3,10 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import CallModal from "@/components/layout/CallModal";
+import PopupModal from "@/components/layout/PopupModal";
 
 import Hero from "@/components/sections/Hero";
 import Intro from "@/components/sections/Intro";
-import PhraseMarquee from "@/components/sections/PhraseMarquee";
 import Departments from "@/components/sections/Departments";
 import DialysisCenter from "@/components/sections/DialysisCenter";
 import ConditionTabs from "@/components/sections/ConditionTabs";
@@ -27,7 +27,6 @@ export default function Home() {
       <main>
         <Hero />
         <Intro />
-        <PhraseMarquee />
         <Departments />
         <DialysisCenter />
         <ConditionTabs
@@ -54,6 +53,7 @@ export default function Home() {
       <Footer />
       <FloatingButtons />
       <CallModal />
+      <PopupModal />
     </>
   );
 }

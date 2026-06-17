@@ -42,7 +42,7 @@
   color: var(--c-orange) !important;
 }
 .linkActive::after {
-  width: 100% !important;
+  transform: scaleX(1) !important;
   opacity: 1 !important;
 }
 

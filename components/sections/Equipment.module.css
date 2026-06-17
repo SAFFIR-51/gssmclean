@@ -100,6 +100,28 @@
   color: var(--c-ink-2);
   line-height: 1.7;
 }
+.features {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--c-border);
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+.features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--c-ink);
+  font-weight: 500;
+}
+.features svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--c-orange);
+}
 
 .controls {
   display: flex;

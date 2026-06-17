@@ -49,10 +49,21 @@ html.js-reveal-ready .reveal:not(.is-visible) {
   padding: 34px 15px !important;
   font-size: 15.5px !important;
 }
+/* hover/활성 밑줄을 글자 폭에 정확히 맞춤 (인셋이 패딩과 어긋나 어색해 보이던 문제 보정) */
+.gnb-link::after {
+  left: 15px !important;
+  right: 15px !important;
+  bottom: 24px !important;
+  background: var(--c-orange) !important;
+}
 @media (min-width: 1025px) and (max-width: 1200px) {
   .gnb-link {
     padding: 34px 11px !important;
     font-size: 14.5px !important;
+  }
+  .gnb-link::after {
+    left: 11px !important;
+    right: 11px !important;
   }
 }
 

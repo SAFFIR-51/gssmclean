@@ -18,24 +18,31 @@
   from { opacity: 0; transform: scale(1.03); }
   to { opacity: 1; transform: scale(1); }
 }
-.caption {
+/* 좌우 넘김 버튼 — 이미지 위에 오버레이 */
+.nav {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 60px 28px 22px;
-  background: linear-gradient(transparent, rgba(20, 30, 50, 0.6));
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(20, 30, 50, 0.35);
+  backdrop-filter: blur(4px);
   color: #fff;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.25s;
+  z-index: 2;
 }
-.counter {
-  font-family: var(--serif);
-  font-size: 14px;
-  opacity: 0.85;
-  margin-left: 8px;
+.nav:hover {
+  background: var(--c-orange);
+  border-color: var(--c-orange);
 }
+.navPrev { left: 16px; }
+.navNext { right: 16px; }
 
 .thumbs {
   display: flex;
@@ -75,5 +82,8 @@
 
 @media (max-width: 640px) {
   .main { aspect-ratio: 4 / 3; }
+  .nav { width: 40px; height: 40px; }
+  .navPrev { left: 10px; }
+  .navNext { right: 10px; }
   .thumb { width: 100px; }
 }

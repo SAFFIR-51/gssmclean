@@ -1,4 +1,5 @@
 import { CLINIC } from "@/data/clinic";
+import NaverMap from "./NaverMap";
 import styles from "./Visit.module.css";
 
 const SubwayIcon = () => (
@@ -20,12 +21,7 @@ export default function Visit() {
       <div className="container visit-v2">
         <div className="visit-map-col">
           <div className="visit-map-embed">
-            <iframe
-              src={CLINIC.mapEmbed}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="강서성모맑은내과의원 위치 — 구글 지도"
-            />
+            <NaverMap />
           </div>
         </div>
 

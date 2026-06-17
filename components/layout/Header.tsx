@@ -1,44 +1,24 @@
 "use client";
 import { useEffect, useState } from "react";
 import { scrollToId } from "@/lib/lenis";
-import { NEPHROLOGY, INTERNAL } from "@/data/content";
+import { CLINIC } from "@/data/clinic";
 import styles from "./Header.module.css";
 
-type Sub = { label: string; section: string; cond?: string; hint?: string };
-type MenuItem = { label: string; section: string; subs?: Sub[] };
+type MenuItem = { label: string; section: string };
 
 const MENU: MenuItem[] = [
-  {
-    label: "병원소개",
-    section: "intro",
-    subs: [
-      { label: "이야기", section: "intro", hint: "강서성모맑은내과 이야기" },
-      { label: "둘러보기", section: "location", hint: "진료실 · 인공신장실" },
-      { label: "오시는 길", section: "visit", hint: "진료시간 · 위치" },
-    ],
-  },
+  { label: "병원소개", section: "intro" },
   { label: "인공신장실", section: "dialysis" },
-  {
-    label: "신장클리닉",
-    section: "nephrology",
-    subs: NEPHROLOGY.map((c) => ({ label: c.label, section: "nephrology", cond: c.key, hint: c.lead.split(".")[0] })),
-  },
-  {
-    label: "내과클리닉",
-    section: "internal",
-    subs: INTERNAL.map((c) => ({ label: c.label, section: "internal", cond: c.key, hint: c.lead.split(".")[0] })),
-  },
+  { label: "신장클리닉", section: "nephrology" },
+  { label: "내과클리닉", section: "internal" },
   { label: "건강검진", section: "checkup" },
   { label: "의료진", section: "team" },
   { label: "오시는 길", section: "visit" },
 ];
 
-function go(e: React.MouseEvent, section: string, cond?: string) {
+function go(e: React.MouseEvent, section: string) {
   e.preventDefault();
   scrollToId(section);
-  if (cond) {
-    window.dispatchEvent(new CustomEvent("activate-cond", { detail: { section, cond } }));
-  }
 }
 
 export default function Header() {
@@ -95,28 +75,20 @@ export default function Header() {
                   >
                     {item.label}
                   </a>
-                  {item.subs && (
-                    <div className="mega">
-                      <ul>
-                        {item.subs.map((s) => (
-                          <li key={s.label}>
-                            <a href={`#${s.section}`} onClick={(e) => go(e, s.section, s.cond)}>
-                              <span>{s.label}</span>
-                              {s.hint && <em>{s.hint}</em>}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </li>
               ))}
             </ul>
           </nav>
           <div className="header-utils">
-            <button type="button" className="hd-cta hd-cta--book" aria-label="예약하기" data-open-call>
+            <a
+              className="hd-cta hd-cta--book"
+              href={CLINIC.naver.place}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="네이버 예약"
+            >
               <span>예약하기</span>
-            </button>
+            </a>
             <button
               id="mnav-toggle"
               type="button"
@@ -147,23 +119,12 @@ export default function Header() {
                 <a className="mnav-top" href={`#${item.section}`} onClick={(e) => { go(e, item.section); closeDrawer(); }}>
                   {item.label}
                 </a>
-                {item.subs && (
-                  <ul className="mnav-sub">
-                    {item.subs.map((s) => (
-                      <li key={s.label}>
-                        <a href={`#${s.section}`} onClick={(e) => { go(e, s.section, s.cond); closeDrawer(); }}>
-                          {s.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </li>
             ))}
           </ul>
         </nav>
         <div className="mnav-foot">
-          <button type="button" className="mnav-cta" data-open-call>예약하기</button>
+          <a className="mnav-cta" href={CLINIC.naver.place} target="_blank" rel="noopener noreferrer" onClick={closeDrawer}>예약하기</a>
           <p className="mnav-info">서울특별시 강서구 공항대로 200<br />마곡지웰타워 3F</p>
         </div>
       </aside>

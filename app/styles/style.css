@@ -1612,6 +1612,21 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   opacity: 1;
   pointer-events: auto;
 }
+/* 네이버 지도 / 블로그 바로가기 — 네이버 브랜드 그린 */
+a.float-btn { text-decoration: none; }
+.float-btn--naver,
+.float-btn--blog {
+  background: #03c75a;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(3, 199, 90, 0.32);
+}
+.float-btn--blog { background: #1ec800; }
+.float-btn__brand {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
 .float-btn:hover { transform: translateY(-4px); }
 
 /* ===========================================

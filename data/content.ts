@@ -178,12 +178,28 @@ export const WHY_ITEMS: WhyItem[] = [
 ];
 
 // 장비 — 기존 장비 제품이미지(device) + 실제 장비실 사진(photo) 함께
-export type Equip = { num: string; cat: string; title: string; sub: string; device: string; photo: string };
+export type Equip = { num: string; cat: string; title: string; sub: string; device: string; photo: string; features: string[] };
 export const EQUIPMENT: Equip[] = [
-  { num: "01", cat: "디지털 X-ray", title: "ESSENCE 5", sub: "디알텍 · 저선량 정밀 영상촬영", device: "/clinic/equip-xray.png", photo: img(23) },
-  { num: "02", cat: "초음파", title: "HS40", sub: "삼성메디슨 · 고해상도 복부·갑상선 검사", device: "/clinic/equip-ultrasound.png", photo: img(30) },
-  { num: "03", cat: "골밀도검사", title: "DEXXUM T QUANTUM", sub: "오스테오시스 · 정밀 골밀도 측정", device: "/clinic/equip-osteopro.png", photo: img(25) },
-  { num: "04", cat: "혈액투석기", title: "NCU-18", sub: "Nipro · 안정적인 투석 모니터링", device: "/clinic/equip-dialysis.png", photo: img(11) },
+  {
+    num: "01", cat: "디지털 X-ray", title: "ESSENCE 5", sub: "디알텍 · 저선량 정밀 영상촬영",
+    device: "/clinic/equip-xray.png", photo: img(23),
+    features: ["저선량 디지털 촬영으로 방사선 피폭 최소화", "흉부·복부·근골격계 고화질 영상", "촬영 즉시 빠른 판독"],
+  },
+  {
+    num: "02", cat: "초음파", title: "HS40", sub: "삼성메디슨 · 고해상도 복부·갑상선 검사",
+    device: "/clinic/equip-ultrasound.png", photo: img(30),
+    features: ["복부·갑상선·경동맥 정밀 진단", "고해상도 실시간 영상", "통증 없는 비침습 검사"],
+  },
+  {
+    num: "03", cat: "골밀도검사", title: "DEXXUM T QUANTUM", sub: "오스테오시스 · 정밀 골밀도 측정",
+    device: "/clinic/equip-osteopro.png", photo: img(25),
+    features: ["척추·대퇴 골밀도 정밀 측정", "골다공증 조기 진단", "저선량 신속 검사"],
+  },
+  {
+    num: "04", cat: "혈액투석기", title: "NCU-18", sub: "Nipro · 안정적인 투석 모니터링",
+    device: "/clinic/equip-dialysis.png", photo: img(11),
+    features: ["실시간 투석 상태 모니터링", "정밀한 제수분량 관리", "표준 프로토콜 기반 안전 투석"],
+  },
 ];
 
 // 의료진

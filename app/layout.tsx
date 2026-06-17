@@ -23,8 +23,13 @@ export const metadata: Metadata = {
   authors: [{ name: "강서성모맑은내과의원" }],
   robots: { index: true, follow: true },
   alternates: { canonical: "https://www.gssmclean.co.kr/" },
+  manifest: "/site.webmanifest",
   icons: {
-    icon: "/clinic/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/clinic/favicon.png", type: "image/png", sizes: "256x256" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/clinic/apple-touch-icon.png",
   },
   openGraph: {

@@ -182,4 +182,8 @@
   .card {
     padding: 36px 28px;
   }
+  /* 모바일: 카드 패딩으로 이미지가 안쪽으로 들어가므로 이미지 자체를 라운드 처리 */
+  .cardImg {
+    border-radius: var(--r-lg);
+  }
 }

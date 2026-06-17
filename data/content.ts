@@ -104,7 +104,7 @@ export const INTERNAL: Condition[] = [
     ],
   },
   {
-    key: "diabetes", label: "당뇨", title: "당뇨 클리닉", img: img(3),
+    key: "diabetes", label: "당뇨", title: "당뇨 클리닉", img: img(2),
     lead: "혈당 조절을 넘어 합병증까지. HbA1c와 신장 합병증을 함께 관리합니다.",
     intro: "당뇨는 혈당 자체보다 합병증 관리가 중요합니다. 당화혈색소(HbA1c) 기반으로 혈당을 관리하고, 당뇨병성 신증 등 신장 합병증을 조기에 발견·관리합니다.",
     points: [
@@ -114,7 +114,7 @@ export const INTERNAL: Condition[] = [
     ],
   },
   {
-    key: "dyslipidemia", label: "이상지질혈증", title: "이상지질혈증 클리닉", img: img(1),
+    key: "dyslipidemia", label: "이상지질혈증", title: "이상지질혈증 클리닉", img: doc(9),
     lead: "콜레스테롤 수치 그 이상. 심혈관 위험도까지 종합 평가합니다.",
     intro: "LDL 콜레스테롤·중성지방 등의 이상은 동맥경화와 심혈관질환의 핵심 위험인자입니다. 개인별 심혈관 위험도를 평가해 목표 수치를 정하고 관리합니다.",
     points: [
@@ -144,7 +144,7 @@ export const INTERNAL: Condition[] = [
     ],
   },
   {
-    key: "liver", label: "간질환", title: "간질환 클리닉", img: doc(3),
+    key: "liver", label: "간질환", title: "간질환 클리닉", img: img(29),
     lead: "지방간부터 간염까지, 혈액검사와 초음파로 간 건강을 점검합니다.",
     intro: "지방간·간염 등 간질환은 초기에 증상이 거의 없습니다. 간기능 혈액검사와 복부 초음파로 조기에 발견하고 진행을 관리합니다.",
     points: [
@@ -205,7 +205,7 @@ export const DOCTOR = {
 };
 
 // 인트로 이미지
-export const INTRO_IMG = { main: img(2), sub: doc(5) };
+export const INTRO_IMG = { main: img(3), sub: doc(5) };
 
 // 둘러보기 갤러리 — 큐레이션
 export const GALLERY = [

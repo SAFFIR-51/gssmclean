@@ -143,14 +143,25 @@
 }
 
 @media (max-width: 900px) {
+  /* 모바일: 절대배치 페이드 대신 활성 슬라이드만 일반 흐름으로 표시 */
+  .viewport {
+    min-height: 0;
+  }
   .slide {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 22px;
+    position: relative;
+    opacity: 1;
+    transform: none;
   }
-  .viewport {
-    min-height: 540px;
+  .slide:not(.slideActive) {
+    display: none;
   }
   .body {
     order: 2;
+  }
+  .device {
+    width: 38%;
+    max-width: 150px;
   }
 }

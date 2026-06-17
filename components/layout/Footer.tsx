@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CLINIC } from "@/data/clinic";
 
 export default function Footer() {
@@ -9,8 +10,8 @@ export default function Footer() {
             <img src="/clinic/logo.png" alt="강서성모맑은내과의원" />
           </a>
           <ul className="footer-links">
-            <li><a href="/terms">이용약관</a></li>
-            <li><a href="/privacy">개인정보처리방침</a></li>
+            <li><Link href="/terms">이용약관</Link></li>
+            <li><Link href="/privacy">개인정보처리방침</Link></li>
           </ul>
         </div>
         <div className="footer-bottom">

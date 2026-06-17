@@ -40,7 +40,15 @@ export const metadata: Metadata = {
       "마곡 인공신장실·야간투석·혈액투석 전문. 신장내과 전문의가 진료하는 마곡·방화동·강서구 거점 의원.",
     url: "https://www.gssmclean.co.kr/",
     locale: "ko_KR",
-    images: ["/clinic/og-image.jpg"],
+    images: [
+      {
+        url: "/clinic/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "강서성모맑은내과의원 진료실",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

@@ -40,13 +40,13 @@ export const metadata: Metadata = {
       "마곡 인공신장실·야간투석·혈액투석 전문. 신장내과 전문의가 진료하는 마곡·방화동·강서구 거점 의원.",
     url: "https://www.gssmclean.co.kr/",
     locale: "ko_KR",
-    images: ["/clinic/og-image.png"],
+    images: ["/clinic/og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "강서성모맑은내과의원 | 마곡 인공신장실 · 신장내과",
     description: "마곡 인공신장실·야간투석·혈액투석 전문 신장내과.",
-    images: ["/clinic/og-image.png"],
+    images: ["/clinic/og-image.jpg"],
   },
   other: {
     "naver-site-verification": "7680a384477470e13f89f2b6e76a01607109443e",
@@ -64,7 +64,7 @@ const jsonLd = {
   "@type": "MedicalClinic",
   name: "강서성모맑은내과의원",
   alternateName: "Gangseo St. Mary Malgeun Internal Medicine Clinic",
-  image: "https://www.gssmclean.co.kr/clinic/og-image.png",
+  image: "https://www.gssmclean.co.kr/clinic/og-image.jpg",
   url: "https://www.gssmclean.co.kr/",
   telephone: CLINIC.tel.main,
   address: {

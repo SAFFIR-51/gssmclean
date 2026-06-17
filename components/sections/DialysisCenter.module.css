@@ -54,19 +54,36 @@
 }
 .stats {
   display: flex;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 20px 28px;
   margin-top: 44px;
+}
+.stat {
+  position: relative;
+  padding-left: 16px;
+}
+.stat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--c-orange);
 }
 .stat strong {
   display: block;
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(19px, 2vw, 24px);
   font-weight: 800;
   color: var(--c-ink);
-  font-family: var(--serif);
+  letter-spacing: -0.01em;
+  margin-bottom: 3px;
 }
 .stat span {
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--c-ink-3);
+  line-height: 1.4;
 }
 
 .cards {

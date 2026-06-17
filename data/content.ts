@@ -29,10 +29,11 @@ export const DIALYSIS_PROMISE: PromiseCard[] = [
   { num: "04", title: "이른 아침·야간 투석", desc: "월·수·금 오전 6시 30분부터 오후 11시까지 운영하여, 직장인 환자분도 일상을 유지하며 치료받으실 수 있습니다.", img: img(6) },
 ];
 
+// 실제 운영 정보 기반 (카운트업 대신 텍스트 표기)
 export const DIALYSIS_STATS = [
-  { value: 11, suffix: "시간", label: "최대 운영 (야간투석)" },
-  { value: 1, suffix: ":1", label: "전담 간호 케어" },
-  { value: 100, suffix: "%", label: "신장학회 인증" },
+  { value: "월·수·금", label: "야간투석 운영 (오후 11시까지)" },
+  { value: "연중무휴", label: "인공신장실 운영 · 일요일 제외" },
+  { value: "신장학회", label: "안전성·효율성 인증 의원" },
 ];
 
 // 질환 탭 공통 타입

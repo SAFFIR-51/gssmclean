@@ -83,10 +83,7 @@ export default function DialysisCenter() {
           <div className={styles.stats}>
             {DIALYSIS_STATS.map((s) => (
               <div className={styles.stat} key={s.label}>
-                <strong>
-                  <span data-count={s.value}>0</span>
-                  {s.suffix}
-                </strong>
+                <strong>{s.value}</strong>
                 <span>{s.label}</span>
               </div>
             ))}

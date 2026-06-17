@@ -1,0 +1,108 @@
+/* 교통안내 — 지하철 / 버스 / 자가용 / 주차 */
+.transit {
+  margin-top: 80px;
+}
+.transitHead {
+  margin-bottom: 40px;
+}
+.transitHead h3 {
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  color: var(--c-ink);
+  letter-spacing: -0.02em;
+}
+.transitHead p {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--c-ink-2);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.card {
+  padding: 32px 30px;
+  border-radius: var(--r-xl);
+  background: #fff;
+  border: 1px solid var(--c-border);
+  box-shadow: var(--sh-sm);
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--c-orange-pale);
+  color: var(--c-orange-dark);
+}
+.cardHead h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-ink);
+}
+.item {
+  padding: 14px 0;
+  border-top: 1px solid var(--c-border);
+}
+.item:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+.itemTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--c-ink);
+  margin-bottom: 8px;
+}
+.itemTitle em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--c-ink-3);
+  font-size: 13px;
+  margin-left: 6px;
+}
+.lines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.line {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--c-ink-2);
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-pill);
+  padding: 4px 11px;
+}
+.lineLabel {
+  color: var(--c-orange);
+}
+.note {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--c-ink-2);
+  margin-bottom: 10px;
+}
+.note strong {
+  color: var(--c-ink);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .transit {
+    margin-top: 56px;
+  }
+}

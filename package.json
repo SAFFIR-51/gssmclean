@@ -1,0 +1,28 @@
+{
+  "name": "gssmclean-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "강서성모맑은내과의원 — Next.js 원페이지",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "next": "14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@types/node": "^20.14.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "puppeteer-core": "^25.1.0",
+    "sharp": "^0.35.1",
+    "typescript": "^5.5.4"
+  }
+}

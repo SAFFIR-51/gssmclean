@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+  <defs><linearGradient id="m4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#88d588"/><stop offset="100%" stop-color="#48a058"/></linearGradient></defs>
+  <rect width="300" height="400" fill="url(#m4)"/>
+  <g transform="translate(150 170)">
+    <circle r="36" fill="rgba(255,255,255,0.95)"/>
+    <polygon points="-10,-14 -10,14 14,0" fill="#48a058"/>
+  </g>
+  <text x="150" y="270" font-family="Pretendard, sans-serif" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">당뇨 합병증 예방하기</text>
+  <text x="150" y="295" font-family="Pretendard, sans-serif" font-size="11" font-weight="500" fill="rgba(255,255,255,0.92)" text-anchor="middle">신장 · 망막 · 신경 케어</text>
+  <text x="150" y="370" font-family="Pretendard, sans-serif" font-size="10" font-weight="600" fill="rgba(255,255,255,0.78)" text-anchor="middle" letter-spacing="2">최신내과 · YOUTUBE</text>
+</svg>

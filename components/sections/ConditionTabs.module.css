@@ -1,0 +1,121 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 40px 0 48px;
+}
+.tab {
+  flex: 0 0 auto;
+  padding: 12px 22px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--c-border-strong);
+  background: #fff;
+  color: var(--c-ink-2);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.tab:hover {
+  border-color: var(--c-orange-light);
+  color: var(--c-orange);
+}
+.tabActive {
+  background: var(--c-orange);
+  border-color: var(--c-orange);
+  color: #fff;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+  animation: fade 0.5s ease both;
+}
+@keyframes fade {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.panelTitle {
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 700;
+  color: var(--c-ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.lead {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--c-orange-dark);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.intro {
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: var(--c-ink-2);
+  margin-bottom: 32px;
+}
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.point {
+  display: flex;
+  gap: 16px;
+  padding: 20px 22px;
+  border-radius: var(--r-lg);
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.point:hover {
+  box-shadow: var(--sh-md);
+  transform: translateY(-2px);
+}
+.pointDot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 50%;
+  background: var(--c-orange);
+}
+.point h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-ink);
+  margin-bottom: 5px;
+}
+.point p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--c-ink-2);
+}
+.visual {
+  position: sticky;
+  top: 110px;
+}
+.visual img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-lg);
+}
+
+@media (max-width: 900px) {
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .visual {
+    position: static;
+    order: -1;
+  }
+  .visual img {
+    aspect-ratio: 16 / 10;
+  }
+}

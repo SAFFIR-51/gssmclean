@@ -1,0 +1,165 @@
+/* 인공신장실 — sticky 스크롤 약속 시퀀스 */
+.pin {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, var(--c-surface-2) 100%);
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 64px;
+  align-items: center;
+  padding: 96px 0;
+}
+
+.intro {
+  align-self: center;
+}
+.counter {
+  font-family: var(--serif);
+  font-size: clamp(64px, 9vw, 140px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--c-orange);
+  letter-spacing: -0.02em;
+  margin: 8px 0 18px;
+}
+.counter small {
+  font-size: 0.32em;
+  color: var(--c-ink-3);
+  font-weight: 600;
+}
+.dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+.dot {
+  width: 36px;
+  height: 4px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--c-border-strong);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.dotActive {
+  background: var(--c-orange);
+  transform: scaleY(1.6);
+}
+.stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 44px;
+}
+.stat strong {
+  display: block;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--c-ink);
+  font-family: var(--serif);
+}
+.stat span {
+  font-size: 13px;
+  color: var(--c-ink-3);
+}
+
+.cards {
+  position: relative;
+  min-height: 540px;
+}
+.card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-xl);
+  background: #fff;
+  box-shadow: var(--sh-xl);
+  border: 1px solid var(--c-border);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.cardActive {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.cardImg {
+  position: relative;
+  flex: 0 0 auto;
+  height: 280px;
+  overflow: hidden;
+}
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+.cardNum {
+  position: absolute;
+  left: 22px;
+  bottom: 16px;
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(20, 30, 50, 0.45);
+}
+.cardBody {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 32px 40px 38px;
+}
+.card h3 {
+  font-size: clamp(21px, 2.2vw, 28px);
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1.4;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+.card p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--c-ink-2);
+}
+
+/* 모바일: 핀 해제, 카드 세로 나열 */
+.mobileList {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+.mobileList .card {
+  position: static;
+  inset: auto;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  .stage {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    min-height: auto;
+    padding: 80px 0;
+  }
+  .card {
+    padding: 36px 28px;
+  }
+}

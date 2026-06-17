@@ -1,0 +1,51 @@
+/* 헤더 추가 요소 — 대표전화 + 스크롤스파이 활성 링크 */
+.tel {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-right: 20px;
+  padding: 6px 4px;
+  text-decoration: none;
+  color: var(--c-orange-dark);
+}
+.telIco {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--c-orange-pale);
+  color: var(--c-orange);
+}
+.telText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.telLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--c-ink-3);
+  text-transform: uppercase;
+}
+.telNum {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--c-ink);
+  letter-spacing: -0.01em;
+}
+
+/* 스크롤스파이 활성 네비 링크 */
+.linkActive {
+  color: var(--c-orange) !important;
+}
+.linkActive::after {
+  width: 100% !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 1100px) {
+  .tel { display: none; }
+}

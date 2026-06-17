@@ -1,0 +1,78 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+/* ===========================================
+   Lenis 스무스 스크롤 권장 스타일 + 전역 보정
+   (디자인 토큰/컴포넌트 스타일은 styles/*.css 에서 그대로 로드)
+   =========================================== */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* prefers-reduced-motion 시 reveal 즉시 표시 (JS와 이중 안전망) */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* GSAP가 제어하기 전 초기 깜빡임 방지: JS 준비 시에만 reveal 숨김 */
+html.js-reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+
+/* 원페이지 풀 네비(7항목) — 한 줄 가로 정렬 보장 */
+.gnb-list {
+  flex-wrap: nowrap !important;
+}
+.gnb-link {
+  white-space: nowrap !important;
+  padding: 34px 15px !important;
+  font-size: 15.5px !important;
+}
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .gnb-link {
+    padding: 34px 11px !important;
+    font-size: 14.5px !important;
+  }
+}
+
+/* 히어로 메시지 도트 (숫자 카운터 대체) */
+.hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.hero-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.hero-dot.is-active {
+  width: 26px;
+  background: #fff;
+}

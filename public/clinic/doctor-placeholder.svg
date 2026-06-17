@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff3e0"/>
+      <stop offset="100%" stop-color="#ffe6c2"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f0e8"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde6d4"/>
+      <stop offset="100%" stop-color="#f4cda8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <!-- Subtle medical cross watermark -->
+  <g opacity="0.08" fill="#f59222">
+    <rect x="350" y="40" width="10" height="36" rx="2"/>
+    <rect x="337" y="53" width="36" height="10" rx="2"/>
+  </g>
+  <!-- Body / White coat -->
+  <path d="M80 500 L80 380 Q80 320 140 295 L160 285 Q200 270 240 285 L260 295 Q320 320 320 380 L320 500 Z" fill="url(#coat)"/>
+  <!-- Coat lapels -->
+  <path d="M165 285 L200 360 L235 285 L260 295 L240 370 L200 410 L160 370 L140 295 Z" fill="#ffffff" stroke="#e8dfd0" stroke-width="1"/>
+  <!-- Shirt + tie -->
+  <path d="M188 380 L200 410 L212 380 L200 360 Z" fill="#f59222"/>
+  <path d="M188 380 L212 380 L210 470 L200 480 L190 470 Z" fill="#d97208"/>
+  <!-- Neck -->
+  <path d="M180 275 L180 305 Q200 320 220 305 L220 275 Z" fill="url(#skin)"/>
+  <!-- Head -->
+  <circle cx="200" cy="220" r="68" fill="url(#skin)"/>
+  <!-- Hair -->
+  <path d="M134 200 Q138 158 175 152 Q200 138 230 155 Q262 162 266 205 Q260 188 240 180 Q220 175 200 178 Q180 175 160 180 Q142 188 134 200 Z" fill="#3a2a1a"/>
+  <!-- Glasses -->
+  <ellipse cx="178" cy="220" rx="16" ry="14" fill="none" stroke="#3a2a1a" stroke-width="2.5"/>
+  <ellipse cx="222" cy="220" rx="16" ry="14" fill="none" stroke="#3a2a1a" stroke-width="2.5"/>
+  <line x1="194" y1="220" x2="206" y2="220" stroke="#3a2a1a" stroke-width="2"/>
+  <!-- Eyes -->
+  <circle cx="178" cy="220" r="2.5" fill="#2a241d"/>
+  <circle cx="222" cy="220" r="2.5" fill="#2a241d"/>
+  <!-- Smile -->
+  <path d="M186 254 Q200 264 214 254" fill="none" stroke="#a86a3a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Stethoscope -->
+  <path d="M170 320 Q160 360 175 390 Q180 400 188 398" fill="none" stroke="#2a241d" stroke-width="3" stroke-linecap="round"/>
+  <path d="M230 320 Q240 360 225 390 Q220 400 212 398" fill="none" stroke="#2a241d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="200" cy="408" r="10" fill="#2a241d"/>
+  <circle cx="200" cy="408" r="5" fill="#5a4a3a"/>
+  <!-- Name badge -->
+  <rect x="148" y="390" width="40" height="22" rx="3" fill="#f59222"/>
+  <text x="168" y="405" font-family="Pretendard, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">MD</text>
+</svg>

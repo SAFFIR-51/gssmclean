@@ -2,6 +2,8 @@
 const P = "/clinic/photos";
 const img = (n: number) => `${P}/interior-${String(n).padStart(2, "0")}.jpg`;
 const doc = (n: number) => `${P}/doctor-${String(n).padStart(2, "0")}.jpg`;
+// 질환 탭 전용 이미지 (강서성모 직접 생성 자산)
+const cond = (name: string) => `/clinic/cond/cond-${name}.jpg`;
 
 // 히어로 — 배경 영상 + 회전 메시지
 export const HERO_VIDEO = { src: "/media/hero.mp4", poster: "/media/hero-poster.jpg" };
@@ -49,25 +51,25 @@ export type Condition = {
 // 신장클리닉
 export const NEPHROLOGY: Condition[] = [
   {
-    key: "hematuria", label: "혈뇨", title: "혈뇨 클리닉", img: img(30),
+    key: "hematuria", label: "혈뇨", title: "혈뇨 클리닉", img: cond("hematuria"),
     lead: "소변에 피가 비치면 가볍게 넘기지 마세요. 정확한 검사로 원인을 빠르게 찾아 드립니다.",
     intro: "소변에 피가 섞여 나오는 상태로, 신장이나 요로(요관·방광·요도)에 이상이 있다는 신호일 수 있습니다. 원인이 다양하기 때문에 검사를 통해 정확한 원인을 확인하는 것이 중요합니다.",
     symptoms: ["소변 색이 붉거나 탁함", "소변에 피가 비침", "건강검진 소변검사 이상"],
   },
   {
-    key: "proteinuria", label: "단백뇨", title: "단백뇨 클리닉", img: img(1),
+    key: "proteinuria", label: "단백뇨", title: "단백뇨 클리닉", img: cond("proteinuria"),
     lead: "소변에 거품이 많거나 단백뇨가 의심되면, 검사로 신장 상태를 정확히 확인해 드립니다.",
     intro: "단백질이 소변으로 빠져나가는 상태로, 신장이 손상되기 시작했다는 초기 신호일 수 있습니다. 소변·혈액 검사로 상태를 확인하고 원인을 함께 관리합니다.",
     symptoms: ["소변에 거품이 많음", "눈 주위·다리가 붓는다", "소변검사에서 단백뇨"],
   },
   {
-    key: "edema", label: "부종", title: "부종 클리닉", img: img(24),
+    key: "edema", label: "부종", title: "부종 클리닉", img: cond("edema"),
     lead: "원인 모를 붓기, 그냥 두지 마세요. 정확한 원인을 찾아 드립니다.",
     intro: "몸에 수분이 비정상적으로 고여 붓는 상태입니다. 신장·심장·간 등 원인이 다양하므로 검사를 통해 정확히 구분하는 것이 중요합니다.",
     symptoms: ["다리·발이 자주 붓는다", "아침에 얼굴이 붓는다", "체중이 갑자기 늘었다"],
   },
   {
-    key: "ckd", label: "만성신부전", title: "만성신부전 클리닉", img: img(4),
+    key: "ckd", label: "만성신부전", title: "만성신부전 클리닉", img: cond("ckd"),
     lead: "콩팥 기능은 한번 나빠지면 회복이 어렵습니다. 꾸준한 관리로 진행을 최대한 늦춰 드립니다.",
     intro: "신장 기능이 오랜 기간에 걸쳐 서서히 떨어지는 상태입니다. 단계에 맞춰 약물·식이·생활관리를 하고, 필요할 때 원내 인공신장실에서 투석까지 이어 관리합니다.",
     symptoms: ["쉽게 피로하고 입맛이 없다", "소변량·횟수가 변했다", "신장 수치 이상 진단"],
@@ -77,13 +79,13 @@ export const NEPHROLOGY: Condition[] = [
 // 내과클리닉
 export const INTERNAL: Condition[] = [
   {
-    key: "hypertension", label: "고혈압", title: "고혈압 클리닉", img: img(3),
+    key: "hypertension", label: "고혈압", title: "고혈압 클리닉", img: cond("hypertension"),
     lead: "혈압이 높으면 신장·심장·혈관에 부담이 됩니다. 정확히 진단하고 꾸준히 관리합니다.",
     intro: "혈압이 지속적으로 높은 상태로, 오래 두면 신장·심장·뇌혈관에 여러 합병증을 일으킬 수 있습니다. 정확한 측정과 약물 조절로 안정적으로 관리합니다.",
     symptoms: ["혈압이 자주 높게 나온다", "두통·어지럼이 있다", "가족 중에 고혈압이 있다"],
   },
   {
-    key: "diabetes", label: "당뇨", title: "당뇨 클리닉", img: img(2),
+    key: "diabetes", label: "당뇨", title: "당뇨 클리닉", img: cond("diabetes"),
     lead: "혈당 조절을 넘어 합병증까지 함께 관리합니다.",
     intro: "혈당이 높은 상태가 이어지면 신장·눈·혈관 등에 합병증이 생길 수 있습니다. 혈당을 꾸준히 관리하고 신장 합병증을 조기에 확인합니다.",
     symptoms: ["갈증이 나고 소변이 잦다", "쉽게 피로하다", "혈당 수치가 높게 나온다"],
@@ -101,13 +103,13 @@ export const INTERNAL: Condition[] = [
     symptoms: ["쉽게 피로하고 무기력하다", "체중이 변했다", "목 부위가 불편하다"],
   },
   {
-    key: "asthma", label: "천식", title: "천식·호흡기 클리닉", img: img(26),
+    key: "asthma", label: "천식", title: "천식·호흡기 클리닉", img: cond("asthma"),
     lead: "반복되는 기침과 호흡곤란, 검사로 원인을 확인합니다.",
     intro: "기도에 만성적인 염증이 생겨 기침·호흡곤란이 반복되는 질환입니다. 검사로 정확히 진단하고 흡입제 등으로 증상을 효과적으로 조절합니다.",
     symptoms: ["기침이 오래 간다", "숨이 차고 쌕쌕거린다", "밤·새벽에 기침이 심하다"],
   },
   {
-    key: "liver", label: "간질환", title: "간질환 클리닉", img: img(24),
+    key: "liver", label: "간질환", title: "간질환 클리닉", img: cond("liver"),
     lead: "지방간부터 간염까지, 검사로 간 건강을 점검합니다.",
     intro: "지방간·간염 등 간질환은 초기에 증상이 거의 없습니다. 혈액검사와 복부 초음파로 일찍 발견하고 관리합니다.",
     symptoms: ["피로하고 소화가 안 된다", "간 수치가 이상하다", "지방간 진단을 받았다"],

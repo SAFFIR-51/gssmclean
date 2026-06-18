@@ -28,10 +28,14 @@
 
 .panel {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 56px;
-  align-items: start;
+  align-items: stretch;
   animation: fade 0.5s ease both;
+}
+.body {
+  display: flex;
+  flex-direction: column;
 }
 @keyframes fade {
   from { opacity: 0; transform: translateY(16px); }
@@ -55,52 +59,96 @@
   font-size: 15.5px;
   line-height: 1.9;
   color: var(--c-ink-2);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
-.points {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+
+/* 이런 증상이 있다면 — 칩 */
+.symptoms {
+  margin-bottom: 28px;
 }
-.point {
+.symptomsLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--c-orange-dark);
+  margin-bottom: 14px;
+}
+.chips {
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+.chip::before {
+  content: "✓";
+  margin-right: 7px;
+  font-weight: 700;
+  color: var(--c-orange);
+}
+
+/* 상담 CTA */
+.cta {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 16px;
-  padding: 20px 22px;
+  padding: 22px 24px;
   border-radius: var(--r-lg);
   background: var(--c-surface-2);
   border: 1px solid var(--c-border);
-  transition: box-shadow 0.3s, transform 0.3s;
 }
-.point:hover {
-  box-shadow: var(--sh-md);
-  transform: translateY(-2px);
+.ctaText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
-.pointDot {
-  flex: 0 0 auto;
-  width: 8px;
-  height: 8px;
-  margin-top: 8px;
-  border-radius: 50%;
-  background: var(--c-orange);
-}
-.point h4 {
+.ctaText strong {
   font-size: 16px;
   font-weight: 700;
   color: var(--c-ink);
-  margin-bottom: 5px;
 }
-.point p {
-  font-size: 14.5px;
-  line-height: 1.7;
+.ctaText span {
+  font-size: 14px;
   color: var(--c-ink-2);
 }
+.ctaBtn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 22px;
+  border-radius: var(--r-pill);
+  background: var(--c-orange);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.ctaBtn:hover {
+  background: var(--c-orange-dark);
+  transform: translateY(-2px);
+}
+
 .visual {
   position: sticky;
   top: 110px;
+  align-self: start;
 }
 .visual img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--r-xl);
   box-shadow: var(--sh-lg);
@@ -117,5 +165,13 @@
   }
   .visual img {
     aspect-ratio: 16 / 10;
+  }
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .ctaBtn {
+    justify-content: center;
   }
 }

@@ -11,7 +11,6 @@ const MENU: MenuItem[] = [
   { label: "인공신장실", section: "dialysis" },
   { label: "신장클리닉", section: "nephrology" },
   { label: "내과클리닉", section: "internal" },
-  { label: "건강검진", section: "checkup" },
   { label: "의료진", section: "team" },
   { label: "오시는 길", section: "visit" },
 ];

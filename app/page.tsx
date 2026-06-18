@@ -10,7 +10,6 @@ import Intro from "@/components/sections/Intro";
 import Departments from "@/components/sections/Departments";
 import DialysisCenter from "@/components/sections/DialysisCenter";
 import ConditionTabs from "@/components/sections/ConditionTabs";
-import HealthScreening from "@/components/sections/HealthScreening";
 import Team from "@/components/sections/Team";
 import WhyDialysis from "@/components/sections/WhyDialysis";
 import Equipment from "@/components/sections/Equipment";
@@ -43,7 +42,6 @@ export default function Home() {
           brand="내과클리닉"
           conditions={INTERNAL}
         />
-        <HealthScreening />
         <Team />
         <WhyDialysis />
         <Equipment />

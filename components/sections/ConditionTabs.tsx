@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { Condition } from "@/data/content";
+import { CLINIC } from "@/data/clinic";
 import styles from "./ConditionTabs.module.css";
 
 type Props = {
@@ -54,20 +55,30 @@ export default function ConditionTabs({ id, eyebrow, titleLines, brand, conditio
         </div>
 
         <div className={styles.panel} key={c.key}>
-          <div>
+          <div className={styles.body}>
             <h3 className={styles.panelTitle}>{c.title}</h3>
             <p className={styles.lead}>{c.lead}</p>
             <p className={styles.intro}>{c.intro}</p>
-            <div className={styles.points}>
-              {c.points.map((p) => (
-                <div className={styles.point} key={p.name}>
-                  <span className={styles.pointDot} aria-hidden="true" />
-                  <div>
-                    <h4>{p.name}</h4>
-                    <p>{p.desc}</p>
-                  </div>
+
+            {c.symptoms.length > 0 && (
+              <div className={styles.symptoms}>
+                <p className={styles.symptomsLabel}>이런 증상이 있다면 진료받으세요</p>
+                <div className={styles.chips}>
+                  {c.symptoms.map((s) => (
+                    <span className={styles.chip} key={s}>{s}</span>
+                  ))}
                 </div>
-              ))}
+              </div>
+            )}
+
+            <div className={styles.cta}>
+              <div className={styles.ctaText}>
+                <strong>정확한 진단이 필요하신가요?</strong>
+                <span>전문의가 직접 검사하고 상담해 드립니다.</span>
+              </div>
+              <a className={styles.ctaBtn} href={`tel:${CLINIC.tel.main}`}>
+                전화 상담 {CLINIC.tel.main}
+              </a>
             </div>
           </div>
           <div className={styles.visual}>

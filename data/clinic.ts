@@ -35,7 +35,6 @@ export const NAV = [
   { id: "dialysis", label: "인공신장실" },
   { id: "nephrology", label: "신장클리닉" },
   { id: "internal", label: "내과클리닉" },
-  { id: "checkup", label: "건강검진" },
   { id: "team", label: "의료진" },
   { id: "location", label: "둘러보기" },
   { id: "visit", label: "오시는 길" },

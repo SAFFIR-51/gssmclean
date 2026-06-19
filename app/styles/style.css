@@ -4,7 +4,7 @@
 
 /* Reset & Base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   font-family: 'Pretendard', 'Apple SD Gothic Neo', -apple-system, sans-serif;
   font-size: 16px;
@@ -1049,6 +1049,9 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   color: rgba(27, 57, 110, 0.10);
   letter-spacing: -0.02em;
   white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-align: center;
   pointer-events: none;
 }
 .location-slider { position: relative; margin-top: 40px; }

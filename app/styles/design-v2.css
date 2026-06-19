@@ -298,6 +298,14 @@ body.subpage { padding-top: 84px; }
   object-fit: cover;
 }
 
+/* 인트로 단일 대표원장 사진 — 가로형 */
+.intro-img-solo {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 5 / 4;
+  align-self: center;
+}
+
 /* Blob — 좌측에서 좌우로 길게 흐르는 매우 옅은 그라데이션, intro→phrase 가로지름 */
 .intro-blob {
   position: absolute;
@@ -7127,6 +7135,7 @@ button.mnav-cta { border: 0; cursor: pointer; font-family: inherit; width: 100%;
   .intro-wrap { grid-template-columns: 1fr; gap: 50px; }
   .intro-visual { min-height: 480px; justify-content: center; }
   .intro-img-main { width: 65%; max-width: 420px; }
+  .intro-img-main.intro-img-solo { width: 100%; max-width: 100%; }
   .intro-img-sub { width: 22%; max-width: 130px; margin-top: 50px; margin-bottom: 50px; }
   .intro-blob { left: -480px; width: 800px; height: 800px; }
 }
@@ -7134,6 +7143,7 @@ button.mnav-cta { border: 0; cursor: pointer; font-family: inherit; width: 100%;
   .intro { padding: 80px 0 70px; }
   .intro-visual { min-height: 360px; gap: 10px; }
   .intro-img-main { width: 68%; }
+  .intro-img-main.intro-img-solo { width: 100%; max-width: 100%; }
   .intro-img-sub { width: 24%; max-width: 100px; margin-top: 36px; margin-bottom: 36px; }
   .intro-blob { left: -360px; width: 600px; height: 600px; }
   .intro-text .section-title { font-size: clamp(32px, 8vw, 44px) !important; }

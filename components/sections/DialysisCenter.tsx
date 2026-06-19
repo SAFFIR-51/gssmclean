@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { DIALYSIS_PROMISE, DIALYSIS_STATS } from "@/data/content";
-import { getLenis } from "@/lib/lenis";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
 import styles from "./DialysisCenter.module.css";
 
+const AUTO_MS = 5000;
+
 export default function DialysisCenter() {
-  const pinRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
   const [mobile, setMobile] = useState(false);
   const N = DIALYSIS_PROMISE.length;
@@ -19,69 +18,55 @@ export default function DialysisCenter() {
     return () => mq.removeEventListener("change", apply);
   }, []);
 
+  // 자동 슬라이드 — active가 바뀔 때마다(수동 조작 포함) 타이머 리셋
   useEffect(() => {
-    const sec = pinRef.current;
-    if (!sec || mobile) return;
-    let last = -1;
-    // ScrollTrigger는 Lenis와 동기화되어 프레임마다 배치 처리 → 부드러움
-    const st = ScrollTrigger.create({
-      trigger: sec,
-      start: "top top",
-      end: "bottom bottom",
-      onUpdate: (self) => {
-        const idx = Math.min(N - 1, Math.round(self.progress * (N - 1)));
-        if (idx !== last) {
-          last = idx;
-          setActive(idx);
-        }
-      },
-    });
-    return () => st.kill();
-  }, [N, mobile]);
+    if (mobile) return;
+    const id = setTimeout(() => setActive((a) => (a + 1) % N), AUTO_MS);
+    return () => clearTimeout(id);
+  }, [active, mobile, N]);
 
-  const jumpTo = (i: number) => {
-    const sec = pinRef.current;
-    if (!sec) return;
-    const total = sec.offsetHeight - window.innerHeight;
-    const top = sec.offsetTop + (total * i) / (N - 1) + 4;
-    const lenis = getLenis();
-    if (lenis) lenis.scrollTo(top);
-    else window.scrollTo({ top, behavior: "smooth" });
-  };
+  const go = (i: number) => setActive((i + N) % N);
 
   return (
     <section
       className={`section ${styles.pin}`}
       id="dialysis"
-      ref={pinRef}
-      style={{ paddingTop: 0, paddingBottom: 0, height: mobile ? "auto" : `${N * 78 + 100}vh` }}
+      style={{ paddingTop: 0, paddingBottom: 0 }}
     >
       <div className={`container ${styles.stage}`}>
         <div className={styles.intro}>
           <p className="eyebrow">Hemodialysis Center</p>
           <h2 className="section-title">
             신장학회 인증<br />
-            <span className="brand">인공신장실</span>
+            <span className="brand">인공신장센터</span>
           </h2>
           {!mobile && (
             <div className={styles.counter}>
               {String(active + 1).padStart(2, "0")}<small> / {String(N).padStart(2, "0")}</small>
             </div>
           )}
-          <p className="section-desc" style={{ maxWidth: 440 }}>
-            대학병원 출신 투석 전문의가 직접 진료하는, 마곡·방화동·강서구 거점 인공신장실.
-            아침 이른 시간부터 야간투석까지 운영합니다.
+          <p className="section-desc" style={{ maxWidth: 460 }}>
+            대학병원 출신 투석 전문의가 직접 진료하고 30년 이상 경력의 전문간호사가 함께하는 인공신장실.
+            마곡역 최초의 마곡·발산·방화동 거점 인공신장실로, 직장인 맞춤 이른 아침 시간부터 야간투석까지 제공합니다.
           </p>
           {!mobile && (
-            <div className={styles.dots}>
-              {DIALYSIS_PROMISE.map((_, i) => (
-                <button
-                  key={i}
-                  className={`${styles.dot}${i === active ? " " + styles.dotActive : ""}`}
-                  aria-label={`${i + 1}번 약속`}
-                  onClick={() => jumpTo(i)}
-                />
-              ))}
+            <div className={styles.nav}>
+              <button className={styles.arrow} aria-label="이전" onClick={() => go(active - 1)}>
+                ‹
+              </button>
+              <div className={styles.dots}>
+                {DIALYSIS_PROMISE.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`${styles.dot}${i === active ? " " + styles.dotActive : ""}`}
+                    aria-label={`${i + 1}번 약속`}
+                    onClick={() => go(i)}
+                  />
+                ))}
+              </div>
+              <button className={styles.arrow} aria-label="다음" onClick={() => go(active + 1)}>
+                ›
+              </button>
             </div>
           )}
           <div className={styles.stats}>

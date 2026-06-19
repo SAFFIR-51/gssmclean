@@ -50,11 +50,8 @@ export default function Intro() {
             </p>
           </div>
           <div className="intro-visual">
-            <div className="intro-img-main">
-              <img src={INTRO_IMG.main} alt="강서성모맑은내과 진료 환경" />
-            </div>
-            <div className="intro-img-sub">
-              <img src={INTRO_IMG.sub} alt="" />
+            <div className="intro-img-main intro-img-solo">
+              <img src={INTRO_IMG.sub} alt="강서성모맑은내과 대표원장 오영승" />
             </div>
           </div>
         </div>

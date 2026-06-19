@@ -11,8 +11,9 @@ import Departments from "@/components/sections/Departments";
 import DialysisCenter from "@/components/sections/DialysisCenter";
 import ConditionTabs from "@/components/sections/ConditionTabs";
 import Team from "@/components/sections/Team";
-import WhyDialysis from "@/components/sections/WhyDialysis";
-import Equipment from "@/components/sections/Equipment";
+// 임시 숨김(되돌리려면 주석 해제) — Why 섹션 + 최첨단 의료장비 섹션
+// import WhyDialysis from "@/components/sections/WhyDialysis";
+// import Equipment from "@/components/sections/Equipment";
 import TourGallery from "@/components/sections/TourGallery";
 import Visit from "@/components/sections/Visit";
 
@@ -43,8 +44,9 @@ export default function Home() {
           conditions={INTERNAL}
         />
         <Team />
-        <WhyDialysis />
-        <Equipment />
+        {/* 임시 숨김(되돌리려면 주석 해제) — Why 섹션 + 최첨단 의료장비 섹션 */}
+        {/* <WhyDialysis /> */}
+        {/* <Equipment /> */}
         <TourGallery />
         <Visit />
       </main>

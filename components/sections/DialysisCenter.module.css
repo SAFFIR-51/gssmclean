@@ -5,8 +5,7 @@
 }
 
 .stage {
-  position: sticky;
-  top: 0;
+  position: relative;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -34,10 +33,37 @@
   color: var(--c-ink-3);
   font-weight: 600;
 }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+.arrow {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--c-border-strong);
+  background: #fff;
+  color: var(--c-ink-2);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+}
+.arrow:hover {
+  background: var(--c-orange);
+  border-color: var(--c-orange);
+  color: #fff;
+  transform: translateY(-1px);
+}
 .dots {
   display: flex;
   gap: 10px;
-  margin-top: 28px;
 }
 .dot {
   width: 36px;

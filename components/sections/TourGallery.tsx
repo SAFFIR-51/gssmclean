@@ -8,7 +8,14 @@ export default function TourGallery() {
   const N = GALLERY.length;
   const timer = useRef<number | null>(null);
   const idxRef = useRef(0);
+  const thumbsRef = useRef<HTMLDivElement>(null);
   useEffect(() => { idxRef.current = active; }, [active]);
+
+  // 활성 썸네일이 한 줄 스트립 안에서 항상 보이도록 가로 스크롤
+  useEffect(() => {
+    const el = thumbsRef.current?.children[active] as HTMLElement | undefined;
+    el?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }, [active]);
 
   const start = () => {
     stop();
@@ -48,7 +55,7 @@ export default function TourGallery() {
           </button>
         </div>
 
-        <div className={styles.thumbs}>
+        <div className={styles.thumbs} ref={thumbsRef}>
           {GALLERY.map((g, i) => (
             <button
               key={i}

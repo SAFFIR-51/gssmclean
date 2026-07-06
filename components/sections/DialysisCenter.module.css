@@ -114,7 +114,7 @@
 
 .cards {
   position: relative;
-  min-height: 540px;
+  min-height: 640px;
 }
 .card {
   position: absolute;
@@ -139,7 +139,7 @@
 .cardImg {
   position: relative;
   flex: 0 0 auto;
-  height: 280px;
+  height: 380px;
   overflow: hidden;
 }
 .cardImg img {

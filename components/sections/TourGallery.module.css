@@ -46,12 +46,25 @@
 
 .thumbs {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   gap: 12px;
   margin-top: 16px;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
   scrollbar-width: thin;
+  scrollbar-color: var(--c-border-strong) transparent;
+}
+.thumbs::-webkit-scrollbar {
+  height: 6px;
+}
+.thumbs::-webkit-scrollbar-thumb {
+  background: var(--c-border-strong);
+  border-radius: 999px;
+}
+.thumbs::-webkit-scrollbar-track {
+  background: transparent;
 }
 .thumb {
   position: relative;
@@ -86,7 +99,5 @@
   .nav { width: 40px; height: 40px; }
   .navPrev { left: 10px; }
   .navNext { right: 10px; }
-  /* 모바일: 가로 스크롤 유지 */
-  .thumbs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; }
   .thumb { width: 100px; }
 }

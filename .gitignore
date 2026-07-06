@@ -25,6 +25,9 @@ yarn-error.log*
 _shot.mjs
 devrun.log
 
+# archived (unused) assets — 로컬 보관, 저장소/배포 제외
+/_archive/
+
 # env
 .env*.local
 

@@ -12,9 +12,15 @@ export default function TourGallery() {
   useEffect(() => { idxRef.current = active; }, [active]);
 
   // 활성 썸네일이 한 줄 스트립 안에서 항상 보이도록 가로 스크롤
+  // (scrollIntoView는 페이지 세로 스크롤까지 움직이므로 컨테이너 가로 스크롤만 조작)
   useEffect(() => {
-    const el = thumbsRef.current?.children[active] as HTMLElement | undefined;
-    el?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    const wrap = thumbsRef.current;
+    const el = wrap?.children[active] as HTMLElement | undefined;
+    if (!wrap || !el) return;
+    wrap.scrollTo({
+      left: el.offsetLeft - (wrap.clientWidth - el.clientWidth) / 2,
+      behavior: "smooth",
+    });
   }, [active]);
 
   const start = () => {

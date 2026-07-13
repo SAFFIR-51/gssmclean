@@ -86,7 +86,7 @@ export default function DialysisCenter() {
               className={`${styles.card}${!mobile && i === active ? " " + styles.cardActive : ""}`}
             >
               <div className={styles.cardImg}>
-                <img src={c.img} alt={c.title} />
+                <img src={c.img} alt={c.title} style={c.imgPos ? { objectPosition: c.imgPos } : undefined} />
                 <span className={styles.cardNum}>{c.num}</span>
               </div>
               <div className={styles.cardBody}>

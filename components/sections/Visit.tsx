@@ -154,7 +154,6 @@ export default function Visit() {
               </div>
               <div className={styles.item}>
                 <p className={styles.note}>병원 방문 시 <strong>무료 주차권</strong> 제공</p>
-                <p className={styles.note}>혼잡 시 마곡역 공영주차장(도보 약 3분) 이용 가능</p>
               </div>
             </div>
           </div>

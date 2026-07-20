@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./PopupModal.module.css";
 
 const IMAGES = [
-  "/popup/popup-5.png",
   "/popup/popup-4.png",
   "/popup/popup-1.png",
   "/popup/popup-2.png",

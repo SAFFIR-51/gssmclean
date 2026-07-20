@@ -118,8 +118,8 @@ export default function Visit() {
               <div className={styles.item}>
                 <p className={styles.itemTitle}>마곡역(중) · 마곡동로사거리 <em>도보 3분</em></p>
                 <div className={styles.lines}>
-                  <span className={styles.line}><span className={styles.lineLabel}>간선</span> 601 · 605 · 642 · 6629</span>
-                  <span className={styles.line}><span className={styles.lineLabel}>공항</span> 6003 · 3000 · 1002 · 9731</span>
+                  <span className={styles.line}><span className={styles.lineLabel}>간선</span> 601 · 605 · 6629</span>
+                  <span className={styles.line}><span className={styles.lineLabel}>공항</span> 6003 · 3000 · 1002</span>
                   <span className={styles.line}><span className={styles.lineLabel}>지선</span> 60 · 388 · 654 · 6633</span>
                 </div>
               </div>

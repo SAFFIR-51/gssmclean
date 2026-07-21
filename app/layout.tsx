@@ -21,7 +21,20 @@ export const metadata: Metadata = {
     "폐기능검사", "강서성모맑은내과",
   ],
   authors: [{ name: "강서성모맑은내과의원" }],
-  robots: { index: true, follow: true },
+  creator: "강서성모맑은내과의원",
+  publisher: "강서성모맑은내과의원",
+  applicationName: "강서성모맑은내과의원",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   alternates: { canonical: "https://www.gssmclean.co.kr/" },
   manifest: "/site.webmanifest",
   icons: {
@@ -67,14 +80,47 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
+const SITE = "https://www.gssmclean.co.kr";
+const CLINIC_ID = `${SITE}/#clinic`;
+
+// 이 번호·주소를 쓰던 이전 병원과 혼동되지 않도록, 상호/전화/공식 프로필을
+// 하나의 엔티티(@id)로 묶어 검색엔진에 명시한다.
+const clinicLd = {
   "@type": "MedicalClinic",
+  "@id": CLINIC_ID,
   name: "강서성모맑은내과의원",
-  alternateName: "Gangseo St. Mary Malgeun Internal Medicine Clinic",
-  image: "https://www.gssmclean.co.kr/clinic/og-image.jpg",
-  url: "https://www.gssmclean.co.kr/",
-  telephone: CLINIC.tel.main,
+  alternateName: [
+    "강서성모맑은내과",
+    "성모맑은내과의원",
+    "마곡 강서성모맑은내과의원",
+    "Gangseo St. Mary Malgeun Internal Medicine Clinic",
+  ],
+  legalName: "강서성모맑은내과의원",
+  image: `${SITE}/clinic/og-image.jpg`,
+  logo: `${SITE}/clinic/logo.png`,
+  url: `${SITE}/`,
+  telephone: "+82-2-2666-0666",
+  identifier: [
+    { "@type": "PropertyValue", name: "사업자등록번호", value: CLINIC.bizNo },
+  ],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "대표전화",
+      telephone: "+82-2-2666-0666",
+      areaServed: "KR",
+      availableLanguage: ["ko"],
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "인공신장실",
+      telephone: "+82-2-2666-0661",
+      areaServed: "KR",
+      availableLanguage: ["ko"],
+    },
+  ],
+  // 동일 실체임을 입증하는 공식 프로필 — 잘못된 상호 연결을 밀어내는 신호
+  sameAs: [CLINIC.naver.place, CLINIC.naver.blog],
   address: {
     "@type": "PostalAddress",
     streetAddress: "공항대로 200 마곡지웰타워 3F",
@@ -83,7 +129,8 @@ const jsonLd = {
     postalCode: "07803",
     addressCountry: "KR",
   },
-  geo: { "@type": "GeoCoordinates", latitude: 37.5601, longitude: 126.8252 },
+  geo: { "@type": "GeoCoordinates", latitude: CLINIC.geo.lat, longitude: CLINIC.geo.lng },
+  hasMap: CLINIC.naver.place,
   medicalSpecialty: ["Nephrology", "InternalMedicine"],
   areaServed: [
     { "@type": "Place", name: "마곡동" },
@@ -109,10 +156,59 @@ const jsonLd = {
   ],
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    clinicLd,
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      url: `${SITE}/`,
+      name: "강서성모맑은내과의원",
+      inLanguage: "ko-KR",
+      publisher: { "@id": CLINIC_ID },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE}/#webpage`,
+      url: `${SITE}/`,
+      name: "강서성모맑은내과의원 | 마곡 인공신장실 · 신장내과 · 야간투석",
+      isPartOf: { "@id": `${SITE}/#website` },
+      about: { "@id": CLINIC_ID },
+      primaryImageOfPage: `${SITE}/clinic/og-image.jpg`,
+      inLanguage: "ko-KR",
+    },
+  ],
+};
+
+const GTM_ID = "GTM-NPRKJ8DF";
+
+const gtmScript = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
+      <head>
+        {/* Google Tag Manager */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <script dangerouslySetInnerHTML={{ __html: gtmScript }} />
+        {/* End Google Tag Manager */}
+      </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         {children}
         <script
           type="application/ld+json"

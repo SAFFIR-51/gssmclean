@@ -69,7 +69,7 @@ export default function Visit() {
             </dl>
 
             <ul className="visit-notes">
-              <li>점심시간(평일 13:00–14:00) 및 운영 시작 30분 전에는 접수가 마감됩니다.</li>
+              <li>점심시간은 평일 13:00–14:00입니다.</li>
               <li>투석실 일정은 별도 안내해 드립니다.</li>
             </ul>
           </div>

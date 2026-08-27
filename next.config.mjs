@@ -19,6 +19,27 @@ const nextConfig = {
       },
     ];
   },
+  async headers() {
+    // 재배포 후에도 옛 화면이 보이는 문제(브라우저/CDN 캐시) 방지
+    //  - HTML 문서: 항상 서버에 재검증 → 새 빌드의 해시된 자산을 즉시 참조
+    //  - public/ 정적 파일: 같은 이름으로 교체될 수 있으므로 ETag 재검증(변경 없으면 304, 트래픽 거의 없음)
+    //  - /_next/static/* 은 내용 해시가 붙으므로 Next 기본값(immutable, 1년) 그대로 둔다
+    const revalidate = [
+      { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+    ];
+    return [
+      { source: "/", headers: revalidate },
+      { source: "/privacy", headers: revalidate },
+      { source: "/terms", headers: revalidate },
+      { source: "/images/:path*", headers: revalidate },
+      { source: "/clinic/:path*", headers: revalidate },
+      { source: "/media/:path*", headers: revalidate },
+      { source: "/favicon.ico", headers: revalidate },
+      { source: "/site.webmanifest", headers: revalidate },
+      { source: "/sitemap.xml", headers: revalidate },
+      { source: "/robots.txt", headers: revalidate },
+    ];
+  },
 };
 
 export default nextConfig;

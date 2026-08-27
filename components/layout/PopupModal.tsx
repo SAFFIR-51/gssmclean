@@ -2,13 +2,16 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./PopupModal.module.css";
 
-const IMAGES = [
-  "/popup/popup-5.png",
-  "/popup/popup-4.png",
-  "/popup/popup-1.png",
-  "/popup/popup-2.png",
-  "/popup/popup-3.png",
-];
+// 정적 import → 빌드 시 파일 내용 해시가 붙은 URL(/_next/static/media/popup-5.<hash>.png)로 변환된다.
+// 이미지를 같은 이름으로 교체해 재배포해도 해시가 바뀌므로 브라우저·CDN 캐시가 자동으로 무효화된다.
+// (public/ 에 그대로 두면 URL이 고정이라 옛 캐시가 계속 노출됨 — 강력 새로고침 필요)
+import popup1 from "@/assets/popup/popup-1.png";
+import popup2 from "@/assets/popup/popup-2.png";
+import popup3 from "@/assets/popup/popup-3.png";
+import popup4 from "@/assets/popup/popup-4.png";
+import popup5 from "@/assets/popup/popup-5.png";
+
+const IMAGES = [popup5, popup4, popup1, popup2, popup3].map((img) => img.src);
 const STORAGE_KEY = "gssm-popup-hide-until";
 const INTERVAL = 4000;
 

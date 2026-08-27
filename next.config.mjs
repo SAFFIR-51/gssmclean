@@ -14,7 +14,8 @@ const nextConfig = {
         source:
           "/((?!_next/|privacy|terms|.*\\.(?:png|jpe?g|gif|svg|webp|avif|ico|css|js|mjs|map|json|xml|txt|webmanifest|woff2?|ttf|otf|eot|mp4|webm|pdf)$).+)",
         destination: "/",
-        permanent: true,
+        // permanent:true 는 308을 내보냄 — 네이버 Yeti는 301/302 처리가 확실하므로 301로 고정
+        statusCode: 301,
       },
     ];
   },
